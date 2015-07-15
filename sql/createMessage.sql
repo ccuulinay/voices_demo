@@ -1,0 +1,7 @@
+CREATE TABLE `message_info` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `UserName` varchar(64) NOT NULL COMMENT '用户名',
+  `Details` varchar(500) NOT NULL COMMENT '留言',
+  `SendTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户留言表';

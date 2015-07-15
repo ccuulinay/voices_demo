@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<title>Recorder with download function</title>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    	
+    	<script src="javascripts/jquery.js"></script>
+    	<script src="javascripts/bootstrap.min.js"></script>
+		<script src="javascripts/def/recorder_download_funs.js"></script>
+		<script src="javascripts/def/recorder_download_audiorecorder.js"></script>
+		<script src="javascripts/def/recorder_download_audiodisplayer.js"></script>
+		<script src=""></script>
+		<style>
+				html { overflow: hidden; }
+				body { 
+					font: 14pt Arial, sans-serif; 
+					background: white;
+					display: flex;
+					flex-direction: column;
+					height: 100vh;
+					width: 100%;
+					margin: 0 0;
+				}
+				canvas { 
+					display: inline-block; 
+					background: #CDC4C4; 
+					width: 95%;
+					height: 45%;
+					box-shadow: 0px 0px 10px black;
+				}
+				#controls {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-around;
+					height: 20%;
+					width: 100%;
+				}
+				#record { height: 10vh; }
+				#record.recording { 
+					background: red;
+					background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#7db9e8 100%); 
+					background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#7db9e8 100%); 
+					background: radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#7db9e8 100%); 
+				}
+				#save, #save img { height: 10vh; }
+				#save { opacity: 0.25;}
+				#save[download] { opacity: 1;}
+				#upload, #upload img { height: 10vh; }
+				#upload { opacity: 0.25;}
+				#upload[uploadToServer] { opacity: 1;}
+				#headbar {
+					height: 10%;
+					width: 100%;
+					
+				}
+				#bodybar {
+					height: 90%;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					align-items: center;
+				}
+				#toggle {
+					height: 45%;
+					width: 95%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+				}
+				#viz {
+					height: 80%;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					align-items: center;
+				}
+				@media (orientation: landscape) {
+					body { flex-direction: column;}
+					#headbar { height: 10%; width: 100%; }
+					#bodybar { flex-direction: row; height: 90%; width: 100%;}
+					#controls { flex-direction: column; height: 100%; width: 10%;}
+					#viz { height: 100%; width: 90%;}
+				}
+
+			
+		</style>
+	</head>
+	<body>
+		<div id="headbar">
+			<% include header.html %>
+		</div>
+		
+		<div id="bodybar">
+			<div id="viz">
+				<div id="toggle">	
+				</div>
+				<canvas id="analyser" width="1024" height="500"></canvas>		
+			</div>
+			<div id="controls">
+				<img id="record" src="images/record_button_96.png" onclick="toggleRecording(this);">
+				<a id="save" href="#"><img src="images/download_button_96.png"></a>
+				<a id="upload" href="#"><img src="images/upload_button_96.png"></a>
+			</div>
+		</div>
+	</body>
+</html>
