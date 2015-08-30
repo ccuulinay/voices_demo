@@ -24,7 +24,7 @@
         sampleRate: this.context.sampleRate
       }
     });
-    var recording = false,
+    var recording = false, 
       currCallback;
 
     this.node.onaudioprocess = function(e){
@@ -101,9 +101,19 @@
   
   Recorder.setupUpload = function(blob, filename){
 	
-	var uploadFile = document.getElementById("upload");
-	
-	uploadFile.setAttribute("uploadToServer", "aa");
+  	var uploadFile = document.getElementById("upload");
+  	uploadFile.setAttribute('uploadToServer','aa');
+
+  	uploadFile.addEventListener('click', function(e) {
+
+      //console.log(e.type);
+      console.log(blob);
+      setUpload(blob, filename);
+
+    }, true);
+
+    
+    
 	
   };
 

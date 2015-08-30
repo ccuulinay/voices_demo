@@ -15,9 +15,9 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if (locals.username) { %> 
-          <li><a href="#">        
+          <li><div id="header_username" value="<%=username%>"><a href="#">        
                 <%= username %>          
-          </a></li>
+          </a></div></li>
           <li><a href="/logout">安全退出</a></li> 
         <% } %>           
       </ul>

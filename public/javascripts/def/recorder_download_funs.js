@@ -10,6 +10,7 @@ var analyserContext = null;
 var canvasWidth, canvasHeight;
 var recIndex = 0;
 
+
 /* TODO:
 
 - offer mono option
@@ -35,13 +36,22 @@ function gotBuffers( buffers ) {
     // so here's where we should set up the download.
     /**
 	The cb for exportWAV define in Recorder is audioBlob, as the input for doneEncoding, to set up download and upload.
-	*/
+	Meaning that doneEncoding(audioBlob) -> exportWAV
+    */
     audioRecorder.exportWAV( doneEncoding );
 }
 
+/*
+    Setup download and Upload after encoding done.
+*/
 function doneEncoding( blob ) {
+    console.log(recIndex);
+    var username = document.getElementById("header_username").getAttribute("value");
+    var timestamp = Date.now();
+    console.log(username);
+    console.log(timestamp);
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-	Recorder.setupUpload( blob, "username_"+"timestamp_"+"pattern"+".wav");
+	Recorder.setupUpload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav");
     recIndex++;
 }
 
@@ -147,7 +157,7 @@ function gotStream(stream) {
     analyserNode = audioContext.createAnalyser();
     analyserNode.fftSize = 2048;
     inputPoint.connect( analyserNode );
-
+//   Create a recorder which is define in recorder_download_audiorecorder
     audioRecorder = new Recorder( inputPoint );
 
     zeroGain = audioContext.createGain();

@@ -1,0 +1,81 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'd:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'd:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'os' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.30
+4 warn package.json fs@0.0.2 fs is also the name of a node core module.
+5 warn package.json fs@0.0.2 No description
+6 warn package.json fs@0.0.2 No repository field.
+7 warn package.json fs@0.0.2 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'os', null ]
+10 verbose cache add name=undefined spec="os" args=["os",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'os',
+11 verbose parsed url   path: 'os',
+11 verbose parsed url   href: 'os' }
+12 silly lockFile 999a3419-os os
+13 verbose lock os C:\Users\Teens\AppData\Roaming\npm-cache\999a3419-os.lock
+14 silly lockFile 999a3419-os os
+15 silly lockFile 999a3419-os os
+16 verbose addNamed [ 'os', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 46c56d42-os os@
+19 verbose lock os@ C:\Users\Teens\AppData\Roaming\npm-cache\46c56d42-os.lock
+20 silly addNameRange { name: 'os', range: '*', hasData: false }
+21 verbose request where is /os
+22 verbose request registry https://registry.npm.taobao.org/
+23 verbose request id 7b2f6e8b64c3eb98
+24 verbose url raw /os
+25 verbose url resolving [ 'https://registry.npm.taobao.org/', './os' ]
+26 verbose url resolved https://registry.npm.taobao.org/os
+27 verbose request where is https://registry.npm.taobao.org/os
+28 info trying registry request attempt 1 at 00:40:53
+29 http GET https://registry.npm.taobao.org/os
+30 info retry will retry, error on last attempt: Error: getaddrinfo EAGAIN
+31 info trying registry request attempt 2 at 00:41:03
+32 http GET https://registry.npm.taobao.org/os
+33 info retry will retry, error on last attempt: Error: getaddrinfo EAGAIN
+34 info trying registry request attempt 3 at 00:42:04
+35 http GET https://registry.npm.taobao.org/os
+36 http 404 https://registry.npm.taobao.org/os
+37 silly registry.get cb [ 404,
+37 silly registry.get   { 'content-type': 'application/json',
+37 silly registry.get     'cache-control': 'max-age=0',
+37 silly registry.get     'content-length': '2',
+37 silly registry.get     'accept-ranges': 'bytes',
+37 silly registry.get     date: 'Fri, 28 Aug 2015 16:42:32 GMT',
+37 silly registry.get     via: '1.1 varnish',
+37 silly registry.get     age: '0',
+37 silly registry.get     connection: 'keep-alive',
+37 silly registry.get     'x-served-by': 'cache-nrt6132-NRT',
+37 silly registry.get     'x-cache': 'MISS',
+37 silly registry.get     'x-cache-hits': '0',
+37 silly registry.get     'x-timer': 'S1440780152.034993,VS0,VE549' } ]
+38 silly lockFile 46c56d42-os os@
+39 silly lockFile 46c56d42-os os@
+40 error 404 Not Found
+40 error 404
+40 error 404 'os' is not in the npm registry.
+40 error 404 You should bug the author to publish it
+40 error 404 It was specified as a dependency of 'mySQLv'
+40 error 404
+40 error 404 Note that you can also install from a
+40 error 404 tarball, folder, or http url, or git url.
+41 error System Windows_NT 6.2.9200
+42 error command "d:\\Program Files\\nodejs\\node.exe" "d:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "os"
+43 error cwd f:\Users\Teens\Documents\GitHub\loginTest\mySQLv
+44 error node -v v0.10.30
+45 error npm -v 1.4.21
+46 error code E404
+47 verbose exit [ 1, true ]
