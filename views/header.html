@@ -15,9 +15,10 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if (locals.username) { %> 
-          <li><div id="header_username" value="<%=username%>"><a href="#">        
+          <li id="header_username" value="<%=username%>"><a href="#">        
                 <%= username %>          
-          </a></div></li>
+          </a></li>
+          <li><a href="/recorder_download">录音</a></li>
           <li><a href="/logout">安全退出</a></li> 
         <% } %>           
       </ul>

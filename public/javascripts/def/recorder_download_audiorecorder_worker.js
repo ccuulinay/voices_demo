@@ -65,7 +65,7 @@ function getBuffers() {
   this.postMessage(buffers);
 }
 
-function clear(){
+function clear() {
   recLength = 0;
   recBuffersL = [];
   recBuffersR = [];

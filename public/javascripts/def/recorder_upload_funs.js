@@ -17,22 +17,23 @@ function emit(event, data, file){
 
 
 
-var setUpload = function(file, filename){
+var setUpload = function(file, props){
     //console.log(hostname);
     console.log("This is from setUpload.");
 
-    //console.log(file);
+    
     try{
-        client.on('open', handleUpload(file, filename));
+        client.on('open', handleUpload(file, props));
     }catch(err){
         console.log(err);
     }
 	
 };
 
-var handleUpload = function(file, filename){
-    
-    audio.upload(file,filename, function (err, data) {
+var handleUpload = function(file, props){
+    var filename = props.filename;
+    console.log(props);
+    audio.upload(file, props, function (err, data) {
         var msg;
         if (data.end) {
             msg = "Upload complete: " + filename;
@@ -51,11 +52,13 @@ var handleUpload = function(file, filename){
         $(progress).text(msg);
      
         if (data.end) {
+            Recorder.clearUpload();
             setTimeout(function () {
                 $(progress).fadeOut(function () {
                     $(progress).text('Can record again now.');
                 }).fadeIn();
             }, 5000);
+            
         }
     });
 };

@@ -47,11 +47,20 @@ function gotBuffers( buffers ) {
 function doneEncoding( blob ) {
     console.log(recIndex);
     var username = document.getElementById("header_username").getAttribute("value");
-    var timestamp = Date.now();
+    var timestampInMill = Date.now();
     console.log(username);
-    console.log(timestamp);
+    console.log(timestampInMill);
+    //console.log(blob);
+
+    var props = [];
+    props.username = username;
+    props.timestampInMill = timestampInMill;
+    props.filename = "audio_" + username + "_" + timestampInMill + "_" + ((recIndex<10)?"0":"") + recIndex + ".wav";
+
+
+
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
-	Recorder.setupUpload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav");
+	Recorder.setupUpload( blob, props);
     recIndex++;
 }
 
@@ -66,6 +75,7 @@ function toggleRecording( e ) {
         if (!audioRecorder)
             return;
         e.classList.add("recording");
+        Recorder.clearUpload();
         audioRecorder.clear();
         audioRecorder.record();
     }

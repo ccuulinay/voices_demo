@@ -99,23 +99,28 @@
     link.download = filename || 'output.wav';
   };
   
-  Recorder.setupUpload = function(blob, filename){
+  Recorder.setupUpload = function(blob, props){
 	
   	var uploadFile = document.getElementById("upload");
   	uploadFile.setAttribute('uploadToServer','aa');
 
-  	uploadFile.addEventListener('click', function(e) {
-
-      //console.log(e.type);
+    var handler = function(e){
+      console.log("This is from a click event.");
       console.log(blob);
-      setUpload(blob, filename);
+      setUpload(blob, props);
+    };    
 
-    }, true);
-
-    
+  	uploadFile.addEventListener('click', handler, true);  
     
 	
   };
+
+  Recorder.clearUpload = function(){
+    var uploadFile = document.getElementById("upload");
+    uploadFile.removeAttribute('uploadToServer');
+    var clone_uploadFile = uploadFile.cloneNode(true);
+    uploadFile.parentNode.replaceChild(clone_uploadFile, uploadFile);
+  }
 
   window.Recorder = Recorder;
 

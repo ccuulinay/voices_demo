@@ -5,9 +5,11 @@ var audio = (function (){
 		
 	};
 
-	function upload(file, filename, cb){
+	function upload(file, props, cb){
+		
 		var stream = emit('upload', {
-	        name  : filename,
+			author : props.username,
+	        name  : props.filename,
 	        size  : file.size,
 	        type  : file.type
 	    }, file);
