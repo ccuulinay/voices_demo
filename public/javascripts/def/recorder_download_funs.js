@@ -200,6 +200,7 @@ function initAudio() {
             alert('Error getting audio');
             console.log(e);
         });
+
 }
 
 window.addEventListener('load', initAudio );

@@ -34,19 +34,19 @@ var setUpload = function(file, props){
 
 var handleUpload = function(file, props){
     var filename = props.filename;
-    console.log(props);
+    //console.log(props);
     audio.upload(file, props, function (err, data) {
         var msg;
         if (data.end) {
-            msg = "Upload complete: " + filename;
-            enable_upload = false;
+            msg = "Upload complete.";
                 
         } else if (data.rx) {
-             msg = Math.round(tx += data.rx * 100) + '% complete';
+             //msg = Math.round(tx += data.rx * 100) + '% complete';
     
         } else {
              // assume error
-             msg = data.err;
+             console.log(data.err);
+             msg = "Upload failed."
          }
 
         console.log(msg);
@@ -92,11 +92,7 @@ var setRefreshUserAudioList = function(){
     };
 
     var open_handler = function(props){
-        // console.log("This is from open_handler.");
-        // var username = document.getElementById("header_username").getAttribute("value");
-        // console.log(username);
-        // var props = [];
-        // props.username = username;
+        
         audio.list(props, handleRefreshUserAudioList );
     };
 

@@ -26,7 +26,8 @@ $(audio_player).ready(function(){
             audio.download(stream, function (err, src){
                 console.log(src);
                 var audio_player = document.getElementById("audio_player");
-                audio_player.autoplay = "autoplay"
+                audio_player.autoplay = "autoplay";
+                audio_player.controls = "true";
                 audio_player.src = src;
                 //$(audio_player).attr('src', src);
             });
@@ -34,4 +35,7 @@ $(audio_player).ready(function(){
     }catch(err){
         console.log(err);
     };
+
 });
+
+$(window).load(Recorder.setupUserAudioList());

@@ -5,7 +5,7 @@ var express = require('express'),
 router.get('/', function(req, res) {
   if(req.cookies.islogin)
   { 
-         console.log('cookies:' + req.cookies.islogin);
+       console.log('cookies:' + req.cookies.islogin);
        req.session.username = req.cookies.islogin;
   }  
 
