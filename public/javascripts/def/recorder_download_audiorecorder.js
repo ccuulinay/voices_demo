@@ -112,7 +112,6 @@
 
   	uploadFile.addEventListener('click', handler, true);  
     
-	
   };
 
   Recorder.clearUpload = function(){
@@ -120,7 +119,11 @@
     uploadFile.removeAttribute('uploadToServer');
     var clone_uploadFile = uploadFile.cloneNode(true);
     uploadFile.parentNode.replaceChild(clone_uploadFile, uploadFile);
-  }
+  };
+
+  Recorder.setupUserAudioList = function(){
+    setRefreshUserAudioList();
+  };
 
   window.Recorder = Recorder;
 

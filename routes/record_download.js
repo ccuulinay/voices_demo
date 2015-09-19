@@ -14,9 +14,9 @@ bs.on('connection', function(client){
       case 'list':
         Audio.list(stream, meta);
         break;
-      // select for one audio
-      case 'select':
-        Audio.select(client, meata);
+      // request for one audio
+      case 'request':
+        Audio.request(client, meta);
         break;
       // perform a upload
       case 'upload':

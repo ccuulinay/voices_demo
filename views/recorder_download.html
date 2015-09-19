@@ -9,12 +9,13 @@
     	
     	<script src="javascripts/jquery.js"></script>
     	<script src="javascripts/bootstrap.min.js"></script>
-    	<script src="http://cdn.binaryjs.com/0/binary.js"></script>
+    	<!--<script src="http://cdn.binaryjs.com/0/binary.js"></script>-->
+    	<script src="javascripts/binary.js"></script>
     	<script src="javascripts/def/recorder_upload_audio.js"></script>
 		<script src="javascripts/def/recorder_download_funs.js"></script>
 		<script src="javascripts/def/recorder_upload_funs.js"></script>
 		<script src="javascripts/def/recorder_download_audiorecorder.js"></script>
-		<script src="javascripts/def/recorder_download_audiodisplayer.js"></script>
+		
 		<script src=""></script>
 		<style>
 				html { overflow: hidden; }
@@ -69,7 +70,15 @@
 					align-items: center;
 				}
 				#toggle {
-					height: 45%;
+					height: 15%;
+					width: 95%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+				}
+				#user_audio_list_field {
+					height: 30%;
 					width: 95%;
 					display: flex;
 					flex-direction: row;
@@ -105,6 +114,16 @@
 			<div id="viz">
 				<div id="toggle">	
 				</div>
+				<div id="user_audio_list_field">
+					<fieldset>
+				        <legend>Select a Link</legend>
+				 
+				        <div id="user_audio_list"></div>
+				    </fieldset>
+				    <fieldset>
+				    	<audio id='audio_player'></audio>
+				    </fieldset>
+				</div>
 				<canvas id="analyser" width="1024" height="500"></canvas>		
 			</div>
 			<div id="controls">
@@ -113,5 +132,7 @@
 				<a id="upload" href="#"><img src="images/upload_button_96.png"></a>
 			</div>
 		</div>
+		<script src="javascripts/def/recorder_download_audiodisplayer.js"></script>
 	</body>
+
 </html>

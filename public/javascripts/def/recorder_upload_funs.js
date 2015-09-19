@@ -27,8 +27,10 @@ var setUpload = function(file, props){
     }catch(err){
         console.log(err);
     }
-	
+
 };
+
+
 
 var handleUpload = function(file, props){
     var filename = props.filename;
@@ -53,6 +55,7 @@ var handleUpload = function(file, props){
      
         if (data.end) {
             Recorder.clearUpload();
+            Recorder.setupUserAudioList();
             setTimeout(function () {
                 $(progress).fadeOut(function () {
                     $(progress).text('Can record again now.');
@@ -62,5 +65,51 @@ var handleUpload = function(file, props){
         }
     });
 };
+
+var setRefreshUserAudioList = function(){
+    console.log("This is from setRefreshUserAudioList.");
+    var username = document.getElementById("header_username").getAttribute("value");
+    console.log(username);
+    var props = [];
+    props.username = username;
+
+    var handleRefreshUserAudioList = function (err, user_audios){
+        console.log("This is from handleRefreshUserAudioList.");
+        var $ul,$li;
+        $(user_audio_list).empty();
+        $ul = $('<ul>').appendTo($(user_audio_list));
+
+        user_audios.forEach(function(user_audio){
+            $li = $('<li>').appendTo($ul);
+            $a = $('<a>').appendTo($li);
+
+            $a.attr('href','#').text(user_audio).click(function(e){
+                fizzle(e);
+                var name = $(this).text();
+                audio.request(props, name);
+            });
+        });
+    };
+
+    var open_handler = function(props){
+        // console.log("This is from open_handler.");
+        // var username = document.getElementById("header_username").getAttribute("value");
+        // console.log(username);
+        // var props = [];
+        // props.username = username;
+        audio.list(props, handleRefreshUserAudioList );
+    };
+
+   
+
+    try{
+        client.on('open', open_handler(props));
+        
+    }catch(err){
+        console.log(err);
+    };
+};
+
+
 
 
