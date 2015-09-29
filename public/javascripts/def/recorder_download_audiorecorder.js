@@ -92,6 +92,15 @@
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
 
+  Recorder.setupPlayback = function(blob){
+    var url = (window.URL || window.webkitURL).createObjectURL(blob);
+    var player = document.getElementById("audio_pb_player");
+    console.log(player);
+    //player.autoplay = "autoplay";
+    player.controls = "true";
+    player.src = url;
+  };
+
   Recorder.setupDownload = function(blob, filename){
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = document.getElementById("save");

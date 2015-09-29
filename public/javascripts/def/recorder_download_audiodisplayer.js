@@ -17,9 +17,9 @@ function drawBuffer( width, height, context, data ) {
     }
 };
 
-$(audio_player).ready(function(){
-    
 
+
+$(audio_player).ready(function(){
     try{
         client.on('stream', function(stream){
             console.log("This is from stream_handler.");
@@ -37,5 +37,3 @@ $(audio_player).ready(function(){
     };
 
 });
-
-$(window).load(Recorder.setupUserAudioList());

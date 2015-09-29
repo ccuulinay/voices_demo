@@ -1,6 +1,8 @@
 var hostname = window.location.hostname;
 var client = new BinaryClient('ws://' + hostname + ':9001');
 
+
+
 function fizzle(e){
 	e.preventDefault();
 	e.stopPropagation();
@@ -105,6 +107,8 @@ var setRefreshUserAudioList = function(){
         console.log(err);
     };
 };
+
+
 
 
 
