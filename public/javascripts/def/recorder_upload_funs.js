@@ -57,7 +57,6 @@ var handleUpload = function(file, props){
      
         if (data.end) {
             Recorder.clearUpload();
-            Recorder.setupUserAudioList();
             setTimeout(function () {
                 $(progress).fadeOut(function () {
                     $(progress).text('Can record again now.');
