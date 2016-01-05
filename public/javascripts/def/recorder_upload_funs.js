@@ -1,8 +1,6 @@
 var hostname = window.location.hostname;
 var client = new BinaryClient('ws://' + hostname + ':9001');
 
-
-
 function fizzle(e){
 	e.preventDefault();
 	e.stopPropagation();
@@ -22,7 +20,6 @@ function emit(event, data, file){
 var setUpload = function(file, props){
     //console.log(hostname);
     console.log("This is from setUpload.");
-
     
     try{
         client.on('open', handleUpload(file, props));
@@ -78,10 +75,10 @@ var setRefreshUserAudioList = function(){
         console.log("This is from handleRefreshUserAudioList.");
         var $ul,$li;
         $(user_audio_list).empty();
-        $ul = $('<ul>').appendTo($(user_audio_list));
+        $ul = $('<ul class="list-group">').appendTo($(user_audio_list));
 
         user_audios.forEach(function(user_audio){
-            $li = $('<li>').appendTo($ul);
+            $li = $('<li class="list-group-item">').appendTo($ul);
             $a = $('<a>').appendTo($li);
 
             $a.attr('href','#').text(user_audio).click(function(e){
@@ -92,19 +89,36 @@ var setRefreshUserAudioList = function(){
         });
     };
 
-    var open_handler = function(props){
-        
+    var open_handler = function(props){        
         audio.list(props, handleRefreshUserAudioList );
     };
 
-   
+    
+    var client_connected = false;
 
-    try{
-        client.on('open', open_handler(props));
-        
-    }catch(err){
-        console.log(err);
+    if(!client_connected){
+        try{
+            //console.log(Object.getOwnPropertyNames(client));
+            client.on('open', open_handler(props));
+        }catch(err){
+            console.log(err);
+            console.log(err.message);
+            console.log(Object.getOwnPropertyNames(err));
+            if(err.message.toString().includes("addListener only takes instances")){
+                client_connected = true;
+            }else if(err.message.toString().includes("Client is not yet connected or has closed")){
+                client_connected = false;
+                clinet = new BinaryClient('ws://' + hostname + ':9001');
+                //setTimeout(1000);
+            };
+
+            
+        };
+
+        console.log(client_connected);
     };
+
+    
 };
 
 

@@ -4,6 +4,7 @@
 
 
 (function(window){
+  
 
   var WORKER_PATH = 'javascripts/def/recorder_download_audiorecorder_worker.js';
 
