@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `message_info`;
+
 CREATE TABLE `message_info` (
   `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `UserName` varchar(64) NOT NULL COMMENT '用户名',

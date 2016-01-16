@@ -3,7 +3,7 @@ var DB_NAME = 'voices_node';
 var pool = mysql.createPool({
 	host: '127.0.0.1',
 	user: 'root',
-	password:''
+	password:'root'
 });
 
 pool.on('connection', function(connection){

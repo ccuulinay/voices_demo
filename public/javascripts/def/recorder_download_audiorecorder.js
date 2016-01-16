@@ -99,6 +99,14 @@
     //player.autoplay = "autoplay";
     player.controls = "true";
     player.src = url;
+
+
+    var rt_array_buffer;
+    var fileReader = new FileReader();
+    fileReader.onload = function(){
+      rt_array_buffer = this.result;
+    }
+    fileReader.readAsArrayBuffer(blob);
   };
 
   Recorder.setupDownload = function(blob, filename){
