@@ -1,4 +1,6 @@
-$(document).ready(function(){
+
+
+$(document).ready(function(){    
 
     function drawBuffer( width, height, context, data ) {
         var step = Math.ceil( data.length / width );
@@ -18,11 +20,14 @@ $(document).ready(function(){
             context.fillRect(i,(1+min)*amp,1,Math.max(1,(max-min)*amp));
         }
     };
-
-    Recorder.setupUserAudioList();
     
+});
+
+window.onload = function(){
+    Recorder.setupUserAudioList();
+
     try{
-        console.log("Check point.");
+        console.log("Attach the src to the URI.");
         client.on('stream', function(stream){
             console.log("This is from stream_handler.");
             audio.download(stream, function (err, src){
@@ -38,5 +43,5 @@ $(document).ready(function(){
         console.log(err);
     };
 
-    
-});
+    //alert("text1");
+};
